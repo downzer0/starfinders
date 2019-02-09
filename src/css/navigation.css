@@ -1,0 +1,32 @@
+.nav {
+  max-width: 15vw;
+  min-width: 175px;
+  margin-right: 2em;
+}
+
+.nav h2:first-of-type {
+  margin-top: 0;
+}
+
+nav,
+.dice {
+  padding: 1em;
+  border: 1px solid #d2d2d2;
+  background: whiteSmoke;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li button {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.dice {
+  margin-top: 2em;
+}

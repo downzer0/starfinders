@@ -1,0 +1,16 @@
+body {
+  margin: 1em 2em;
+  font-family: sans-serif;
+}
+
+.has-flex {
+  display: flex;
+}
+
+.is-flexed {
+  flex: 1;
+}
+
+.has-radius {
+  border-radius: 3px;
+}
