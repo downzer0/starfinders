@@ -1,1 +1,27 @@
+.app-main .is-not-flexed {
+  display: inline-block;
+  width: 33.3%;
+  padding: 0 1em 1em 1em;
+}
 
+.player-card {
+  background: white;
+  border: 1px solid #d2d2e2;
+  border-radius: 3px;
+  padding: 1em;
+  height: 15em;
+}
+
+.player-card dl dt,
+.player-card dl dd {
+  display: block;
+  margin: 0;
+}
+
+.player-card dl dt {
+  font-weight: bold;
+}
+
+.player-card dl dd {
+  margin-bottom: .5em;
+}

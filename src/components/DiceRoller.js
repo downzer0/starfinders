@@ -8,7 +8,16 @@ const roller = (event) => {
   const num = document.querySelector('#number-of-die').value;
   const result = document.querySelector('.dice-result .result');
 
-  result.innerHTML = ((Math.floor(Math.random() * parseInt(die, 10)) + 1) * parseInt(num, 10));
+  const roll = ((Math.floor(Math.random() * parseInt(die, 10)) + 1) * parseInt(num, 10));
+
+  result.innerHTML = roll;
+  if (roll === 1) {
+    result.style.color = 'red';
+  } else if (roll === 20) {
+    result.style.color = 'green';
+  } else {
+    result.style.color = 'inherit';
+  }
 };
 
 const Dice = () => {

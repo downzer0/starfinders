@@ -30,7 +30,7 @@ const load = async (event, addPlayer) => {
 };
 
 const Navigation = (props) => {
-  const { addPlayer, getPlayers, showNewSheet } = props;
+  const { addPlayer, getPlayers, showNewSheet, showSheet } = props;
 
   return (
     <div className="nav">
@@ -49,6 +49,22 @@ const Navigation = (props) => {
       <div className="dice">
         <DiceRoller />
       </div>
+      {
+        showSheet
+        ? <div className="sheet-links">
+            <h2>Character quick links</h2>
+            <ul>
+              <li><a href="#player-info">Player Info</a></li>
+              <li><a href="#ability-scores">Ability Scores</a></li>
+              <li><a href="#health-resolve-init">Health, Resolve, Inits</a></li>
+              <li><a href="#armor-class">Armor Class</a></li>
+              <li><a href="#saving-throws">Saving Throws</a></li>
+              <li><a href="#attack-bonuses">Attack Bonuses</a></li>
+              <li><a href="#skills">Skills</a></li>
+            </ul>
+          </div>
+        : ''
+      }
     </div>
   )
 }

@@ -6,7 +6,7 @@ const Header = () => {
     <header role="banner">
       <div className="has-flex">
         <div className="is-not-flexed">
-          <h1>Starfinder GM Tools</h1>
+          <h1>Starfinder DM Tools</h1>
         </div>
         <div className="is-flexed">
           <div className="version">v0.1.0</div>
