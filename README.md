@@ -1,5 +1,7 @@
 # Starfinders
 
+<a href="index.html">View Character Sheets</a>
+
 Interactive character sheets for DM use for the Starfinder role playing game. _This is not a character generator._
 
 ## How does this work?
@@ -13,3 +15,5 @@ Optionally, you can export your save to a file, and import it later to continue.
 ## Why?
 
 Mainly for me. As nice as PDFs are, I don't like using them for character sheets during online games. I'd prefer an actual sheet or something digital. I chose the latter because I wanted a weekend project for myself. And I decided to make it open source in case anyone else gets the itch too!
+
+<a href="index.html">View Character Sheets</a>
