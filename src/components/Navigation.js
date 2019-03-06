@@ -14,6 +14,25 @@ const save = async (event, getPlayers) => {
   return alert('No players to save.');
 };
 
+const download = async (event, getPlayers) => {
+  event.preventDefault();
+  const playersData = await getPlayers();
+
+  if (playersData && playersData.length) {
+    const data = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(playersData))}`;
+    const container = document.querySelector("#tools").parentNode;
+    const button = document.createElement("a");
+    button.setAttribute("href", data);
+    button.setAttribute("download", "starfinders.json");
+    container.appendChild(button);
+    button.click();
+    button.remove();
+    return;
+  }
+
+  return alert('No players to download.');
+};
+
 const load = async (event, addPlayer) => {
   event.preventDefault();
   const playersData = JSON.parse(localStorage.getItem('__starfinder'));
@@ -30,7 +49,7 @@ const load = async (event, addPlayer) => {
 };
 
 const Navigation = (props) => {
-  const { addPlayer, getPlayers, showNewSheet, showSheet } = props;
+  const { upload, addPlayer, getPlayers, showNewSheet, showSheet } = props;
 
   return (
     <div className="nav">
@@ -42,8 +61,26 @@ const Navigation = (props) => {
         </ul>
         <h2>Save / Load</h2>
         <ul>
-          <li><button onClick={event => save(event, getPlayers)}>Save</button></li>
-          <li><button onClick={event => load(event, addPlayer)}>Load</button></li>
+          <li>
+            <div className="has-flex">
+              <div className="is-flexed">
+                <button onClick={event => save(event, getPlayers)}>Save</button>
+              </div>
+              <div className="is-flexed">
+                <button id="export" onClick={event => download(event, getPlayers)}>Export</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div className="has-flex">
+              <div className="is-flexed">
+                <button onClick={event => load(event, addPlayer)}>Restore</button>
+              </div>
+              <div className="is-flexed">
+                <button id="import" onClick={event => upload(event, addPlayer)}>Import</button>
+              </div>
+            </div>
+          </li>
         </ul>
       </nav>
       <div className="dice">
@@ -61,6 +98,8 @@ const Navigation = (props) => {
               <li><a href="#saving-throws">Saving Throws</a></li>
               <li><a href="#attack-bonuses">Attack Bonuses</a></li>
               <li><a href="#skills">Skills</a></li>
+              <li><a href="#weapons">Weapons</a></li>
+              <li><a href="#armor">Armor</a></li>
             </ul>
           </div>
         : ''
