@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Navigation from './Navigation';
+import ReactModal from 'react-modal';
 import NewSheet from './NewSheet';
 import Sheet from './Sheet';
 import '../css/App.css';
+
+ReactModal.setAppElement('#root');
 
 class App extends Component {
   constructor() {
@@ -13,6 +16,7 @@ class App extends Component {
       players: [],
       toggleNewSheet: false,
       toggleSheet: false,
+      uploadModalIsShown: false,
     };
 
     this.addPlayer = this.addPlayer.bind(this);
@@ -21,6 +25,7 @@ class App extends Component {
     this.showNewSheet = this.showNewSheet.bind(this);
     this.updatePlayer = this.updatePlayer.bind(this);
     this.hidePlayer = this.hidePlayer.bind(this);
+    this.showUploadModal = this.showUploadModal.bind(this);
   }
 
   addPlayer(playerObject) {
@@ -114,13 +119,53 @@ class App extends Component {
     }, 100);
   }
 
+  showUploadModal() {
+    this.setState({
+      showUploadModal: !this.state.showUploadModal,
+    });
+  }
+
+  upload(event) {
+    event.preventDefault();
+    const file = document.querySelector("#saved-session").files;
+
+    if (file.length <= 0) {
+      alert("No session JSON found.");
+      return false;
+    }
+
+    const fileReader = new FileReader();
+
+    fileReader.onload = (event) => {
+      const playersData = JSON.parse(event.target.result);
+
+      if (playersData && playersData.length) {
+        playersData.forEach((player) => {
+          this.addPlayer(player);
+        });
+    
+        this.setState({
+          showUploadModal: false,
+        });
+
+        return;
+      }
+    }
+
+    fileReader.readAsText(file.item(0));
+    return;
+  };
+
   render() {
     return (
       <div className="App">
         <Header />
         <div className="has-flex">
           <div className="is-not-flexed">
-            <Navigation addPlayer={this.addPlayer} getPlayers={this.getPlayers} showNewSheet={this.showNewSheet} showSheet={this.state.toggleSheet} />
+            <Navigation upload={this.showUploadModal} addPlayer={this.addPlayer} getPlayers={this.getPlayers} showNewSheet={this.showNewSheet} showSheet={this.state.toggleSheet} />
+            <div className="github">
+              <a href="https://github.com/downzer0/starfinders">Fork me on Github</a>
+            </div>
           </div>
           <div className="is-flexed">
             {
@@ -141,7 +186,11 @@ class App extends Component {
                                 <dt>Played by:</dt>
                                 <dd>{player.realName}</dd>
                                 <dt>Class:</dt>
-                                <dd>{player.race} {player.mainClass} {player.specialization}</dd>
+                                <dd>{
+                                  player.race && player.mainClass && player.specialization
+                                  ? `${player.race} ${player.mainClass} ${player.specialization}`
+                                  : <em>not set yet</em>
+                                }</dd>
                               </dl>
                               <button className="view-player-card" onClick={event => this.showPlayer(event, index)}>View</button>
                               <button className="remove-player" onClick={event => this.removePlayer(event, index)}>Remove</button>
@@ -154,6 +203,14 @@ class App extends Component {
             }
           </div>
         </div>
+        <ReactModal isOpen={this.state.showUploadModal}>
+          <form>
+            <h2>Import your saved JSON file</h2>
+            <label htmlFor="saved-session">JSON file:</label>
+            <input type="file" id="saved-session" />
+            <button type="button" onClick={event => this.upload(event)}>Import</button>
+          </form>
+        </ReactModal>
       </div>
     );
   }

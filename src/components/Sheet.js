@@ -71,8 +71,17 @@ class Sheet extends Component {
       <div className="sheet">
         <form>
           <header id="player-info" tabIndex="-1">
-            <h2>{this.state.player.playerName} ({this.state.player.realName})</h2>
-            <button type="button" onClick={event => this.props.close(event)}>Close</button>
+            <div className="has-flex">
+              <div className="is-flexed">
+                <h2>{this.state.player.playerName} ({this.state.player.realName})</h2>
+              </div>
+              <div className="is-flexed">
+                <div className="controls">
+                  <button onClick={event => this.updatePlayer(event)}>Update player details</button>
+                  <button type="button" onClick={event => this.props.close(event)}>Close</button>
+                </div>
+              </div>
+            </div>
             <div className="has-flex">
               <div className="is-flexed">
                 <label htmlFor="mainClass">Main class:</label>
@@ -738,9 +747,6 @@ class Sheet extends Component {
             </div>
             <h3 className="sr-only">Class skills</h3>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" id="acrobatics" aria-labelledby="skillAcrobatics" defaultChecked={this.state.player.acrobatics ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillAcrobatics">Acrobatics (DEX)</span>
               </div>
@@ -770,9 +776,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" id="athletics" aria-labelledby="skillAthletics" defaultChecked={this.state.player.athletics ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillAthletics">Athletics (STR)</span>
               </div>
@@ -802,9 +805,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" id="bluff" aria-labelledby="skillBluff" defaultChecked={this.state.player.bluff ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillBluff">Bluff (CHA)</span>
               </div>
@@ -834,9 +834,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillComputers" id="computers" defaultChecked={this.state.player.computers ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillComputers">Computers (INT)</span>
               </div>
@@ -866,9 +863,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillCulture" id="culture" defaultChecked={this.state.player.culture ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillCulture">Culture (INT)</span>
               </div>
@@ -898,9 +892,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillDiplomacy" id="diplomacy" defaultChecked={this.state.player.diplomacy ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillDiplomacy">Diplomacy (CHA)</span>
               </div>
@@ -930,9 +921,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillDisguise" id="disguise" defaultChecked={this.state.player.disguise ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillDisguise">Disguise (CHA)</span>
               </div>
@@ -962,9 +950,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillEngineering" id="engineering" defaultChecked={this.state.player.engineering ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillEngineering">Engineering (INT)</span>
               </div>
@@ -994,9 +979,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillIntimidate" id="intimidate" defaultChecked={this.state.player.intimidate ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillIntimidate">Intimidate (CHA)</span>
               </div>
@@ -1026,9 +1008,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillLifeScience" id="lifeScience" defaultChecked={this.state.player.lifeScience ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillLifeScience">Life Science (INT)</span>
               </div>
@@ -1058,9 +1037,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillMedicine" id="medicine" defaultChecked={this.state.player.medicine ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillMedicine">Medicine (INT)</span>
               </div>
@@ -1090,9 +1066,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillMysticism" id="mysticism" defaultChecked={this.state.player.mysticism ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillMysticism">Mysticism (WIS)</span>
               </div>
@@ -1122,9 +1095,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillPerception" id="perception" defaultChecked={this.state.player.perception ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillPerception">Perception (WIS)</span>
               </div>
@@ -1154,9 +1124,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillPhysicalScience" id="physicalScience" defaultChecked={this.state.player.physicalScience ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillPhysicalScience">Physical Science (INT)</span>
               </div>
@@ -1186,9 +1153,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillPiloting" id="piloting" defaultChecked={this.state.player.piloting ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillPiloting">Piloting (DEX)</span>
               </div>
@@ -1218,9 +1182,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillSenseMotive" id="senseMotive" defaultChecked={this.state.player.senseMotive ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillSenseMotive">Sense Motive (WIS)</span>
               </div>
@@ -1250,9 +1211,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillSleightOfHand" id="sleightOfHand" defaultChecked={this.state.player.sleightOfHand ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillSleightOfHand">Sleight Of Hand (DEX)</span>
               </div>
@@ -1282,9 +1240,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillStealth" id="stealth" defaultChecked={this.state.player.stealth ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillStealth">Stealth (DEX)</span>
               </div>
@@ -1314,9 +1269,6 @@ class Sheet extends Component {
               </div>
             </div>
             <div className="has-flex">
-              <div className="is-not-flexed">
-                <input type="checkbox" name="classSkills" aria-labelledby="skillSurvival" id="survival" defaultChecked={this.state.player.survival ? true : false} />
-              </div>
               <div className="is-flexed">
                 <span id="skillSurvival">Survival (WIS)</span>
               </div>
@@ -1345,6 +1297,528 @@ class Sheet extends Component {
                 <input type="number" id="skillSurvivalMiscModifier" aria-describedby="skillSurvival" defaultValue={this.state.player.skillSurvivalMiscModifier || 0} onBlur={event => this.updateAllStats(event)} />
               </div>
             </div>
+
+            <div className="skill-notes">
+              <label htmlFor="skillNotes">Skill notes</label>
+              <textarea id="skillNotes" defaultValue={this.state.player.skillNotes}></textarea>
+            </div>
+          </section>
+
+          <section id="weapons" tabIndex="-1">
+            <h2>Weapons</h2>
+            <div className="has-flex">
+              <div className="is-flexed">
+                <label htmlFor="useDexForWeapons">Use DEX for weapons?</label>
+                <select id="useDexForWeapons" defaultValue={this.state.useDexForWeapons}>
+                  <option value="Y">Yes</option>
+                  <option value="N">No</option>
+                </select>
+              </div>
+            </div>
+            <div className="weapon-group" id="weapon-1">
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponName1">Weapon</label>
+                  <input type="text" id="weaponName1" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponLevel1">Level</label>
+                  <input type="number" id="weaponLevel1" defaultValue="1" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponAttackBonus1">Attack Bonus</label>
+                  <input type="number" id="weaponAttackBonus1" className="is-key" defaultValue="0" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponDamage1">Damage</label>
+                  <input type="text" id="weaponDamage1" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponDamageType1">Damage Type</label>
+                  <input type="text" id="weaponDamageType1" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponBulk1">Bulk</label>
+                  <input type="number" id="weaponBulk1" />
+                </div>
+              </div>
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponCritical1">Critical</label>
+                  <input type="text" id="weaponCritical1" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponRange1">Range</label>
+                  <input type="number" id="weaponRange1" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponType1">Type</label>
+                  <input type="text" id="weaponType1" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponAmmoType1">Ammo/Usage</label>
+                  <input type="text" id="weaponAmmoType1" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponSpecial1">Special</label>
+                  <input type="text" id="weaponSpecial1" />
+                </div>
+              </div>
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion11">Fusion 1</label>
+                  <input type="text" id="weaponFusion11" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion12">Fusion 2</label>
+                  <input type="text" id="weaponFusion12" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion13">Fusion 3</label>
+                  <input type="text" id="weaponFusion13" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion14">Fusion 4</label>
+                  <input type="text" id="weaponFusion14" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion15">Fusion 5</label>
+                  <input type="text" id="weaponFusion15" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponMaterial11">Material</label>
+                  <input type="text" id="weaponMaterial11" />
+                </div>
+              </div>
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion16">Fusion 6</label>
+                  <input type="text" id="weaponFusion16" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion17">Fusion 7</label>
+                  <input type="text" id="weaponFusion17" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion18">Fusion 8</label>
+                  <input type="text" id="weaponFusion18" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion19">Fusion 9</label>
+                  <input type="text" id="weaponFusion19" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion110">Fusion 10</label>
+                  <input type="text" id="weaponFusion110" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponAmmoMaterial11">Ammo Material</label>
+                  <input type="text" id="weaponAmmoMaterial11" />
+                </div>
+              </div>
+            </div>
+            <div className="weapon-group" id="weapon-2">
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponName2">Weapon</label>
+                  <input type="text" id="weaponName2" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponLevel2">Level</label>
+                  <input type="number" id="weaponLevel2" defaultValue="1" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponAttackBonus2">Attack Bonus</label>
+                  <input type="number" id="weaponAttackBonus2" className="is-key" defaultValue="0" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponDamage2">Damage</label>
+                  <input type="text" id="weaponDamage2" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponDamageType2">Damage Type</label>
+                  <input type="text" id="weaponDamageType2" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponBulk2">Bulk</label>
+                  <input type="number" id="weaponBulk2" />
+                </div>
+              </div>
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponCritical2">Critical</label>
+                  <input type="text" id="weaponCritical2" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponRange2">Range</label>
+                  <input type="number" id="weaponRange2" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponType2">Type</label>
+                  <input type="text" id="weaponType2" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponAmmoType2">Ammo/Usage</label>
+                  <input type="text" id="weaponAmmoType2" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponSpecial2">Special</label>
+                  <input type="text" id="weaponSpecial2" />
+                </div>
+              </div>
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion21">Fusion 1</label>
+                  <input type="text" id="weaponFusion21" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion22">Fusion 2</label>
+                  <input type="text" id="weaponFusion22" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion23">Fusion 3</label>
+                  <input type="text" id="weaponFusion23" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion24">Fusion 4</label>
+                  <input type="text" id="weaponFusion24" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion25">Fusion 5</label>
+                  <input type="text" id="weaponFusion25" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponMaterial21">Material</label>
+                  <input type="text" id="weaponMaterial21" />
+                </div>
+              </div>
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion26">Fusion 6</label>
+                  <input type="text" id="weaponFusion26" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion27">Fusion 7</label>
+                  <input type="text" id="weaponFusion27" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion28">Fusion 8</label>
+                  <input type="text" id="weaponFusion28" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion29">Fusion 9</label>
+                  <input type="text" id="weaponFusion29" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion210">Fusion 10</label>
+                  <input type="text" id="weaponFusion210" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponAmmoMaterial21">Ammo Material</label>
+                  <input type="text" id="weaponAmmoMaterial21" />
+                </div>
+              </div>
+            </div>
+            <div className="weapon-group" id="weapon-3">
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponName3">Weapon</label>
+                  <input type="text" id="weaponName3" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponLevel3">Level</label>
+                  <input type="number" id="weaponLevel3" defaultValue="1" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponAttackBonus3">Attack Bonus</label>
+                  <input type="number" id="weaponAttackBonus3" className="is-key" defaultValue="0" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponDamage3">Damage</label>
+                  <input type="text" id="weaponDamage3" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponDamageType3">Damage Type</label>
+                  <input type="text" id="weaponDamageType3" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponBulk3">Bulk</label>
+                  <input type="number" id="weaponBulk3" />
+                </div>
+              </div>
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponCritical3">Critical</label>
+                  <input type="text" id="weaponCritical3" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponRange3">Range</label>
+                  <input type="number" id="weaponRange3" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponType3">Type</label>
+                  <input type="text" id="weaponType3" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponAmmoType3">Ammo/Usage</label>
+                  <input type="text" id="weaponAmmoType3" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponSpecial3">Special</label>
+                  <input type="text" id="weaponSpecial3" />
+                </div>
+              </div>
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion31">Fusion 1</label>
+                  <input type="text" id="weaponFusion31" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion32">Fusion 2</label>
+                  <input type="text" id="weaponFusion32" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion33">Fusion 3</label>
+                  <input type="text" id="weaponFusion33" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion34">Fusion 4</label>
+                  <input type="text" id="weaponFusion34" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion35">Fusion 5</label>
+                  <input type="text" id="weaponFusion35" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponMaterial31">Material</label>
+                  <input type="text" id="weaponMaterial31" />
+                </div>
+              </div>
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion36">Fusion 6</label>
+                  <input type="text" id="weaponFusion36" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion37">Fusion 7</label>
+                  <input type="text" id="weaponFusion37" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion38">Fusion 8</label>
+                  <input type="text" id="weaponFusion38" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion39">Fusion 9</label>
+                  <input type="text" id="weaponFusion39" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion310">Fusion 10</label>
+                  <input type="text" id="weaponFusion310" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponAmmoMaterial31">Ammo Material</label>
+                  <input type="text" id="weaponAmmoMaterial31" />
+                </div>
+              </div>
+            </div>
+            <div className="weapon-group" id="weapon-4">
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponName4">Weapon</label>
+                  <input type="text" id="weaponName4" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponLevel4">Level</label>
+                  <input type="number" id="weaponLevel4" defaultValue="1" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponAttackBonus4">Attack Bonus</label>
+                  <input type="number" id="weaponAttackBonus4" className="is-key" defaultValue="0" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponDamage4">Damage</label>
+                  <input type="text" id="weaponDamage4" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponDamageType4">Damage Type</label>
+                  <input type="text" id="weaponDamageType4" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponBulk4">Bulk</label>
+                  <input type="number" id="weaponBulk4" />
+                </div>
+              </div>
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponCritical4">Critical</label>
+                  <input type="text" id="weaponCritical4" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponRange4">Range</label>
+                  <input type="number" id="weaponRange4" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponType4">Type</label>
+                  <input type="text" id="weaponType4" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponAmmoType4">Ammo/Usage</label>
+                  <input type="text" id="weaponAmmoType4" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponSpecial4">Special</label>
+                  <input type="text" id="weaponSpecial4" />
+                </div>
+              </div>
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion41">Fusion 1</label>
+                  <input type="text" id="weaponFusion41" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion42">Fusion 2</label>
+                  <input type="text" id="weaponFusion42" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion43">Fusion 3</label>
+                  <input type="text" id="weaponFusion43" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion44">Fusion 4</label>
+                  <input type="text" id="weaponFusion44" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion45">Fusion 5</label>
+                  <input type="text" id="weaponFusion45" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponMaterial41">Material</label>
+                  <input type="text" id="weaponMaterial41" />
+                </div>
+              </div>
+              <div className="has-flex">
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion46">Fusion 6</label>
+                  <input type="text" id="weaponFusion46" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion47">Fusion 7</label>
+                  <input type="text" id="weaponFusion47" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion48">Fusion 8</label>
+                  <input type="text" id="weaponFusion48" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion49">Fusion 9</label>
+                  <input type="text" id="weaponFusion49" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponFusion410">Fusion 10</label>
+                  <input type="text" id="weaponFusion410" />
+                </div>
+                <div className="is-flexed">
+                  <label htmlFor="weaponAmmoMaterial41">Ammo Material</label>
+                  <input type="text" id="weaponAmmoMaterial41" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="armor" tabIndex="-1">
+            <h2>Armor</h2>
+            <div className="has-flex">
+              <div className="is-flexed">
+                <label htmlFor="armorName">Armor</label>
+                <input type="text" id="armorName" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorLevel">Level</label>
+                <input type="number" id="armorLevel" defaultValue="1" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorEacBonus">EAC Bonus</label>
+                <input type="number" id="armorEacBonus" defaultValue="0" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorKacBonus">KAC Bonus</label>
+                <input type="number" id="armorKacBonus" defaultValue="0" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorMaxDexBonus">Max DEX Bonus</label>
+                <input type="number" id="armorMaxDexBonus" defaultValue="0" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorAcPenalty">AC Penalty</label>
+                <input type="number" id="armorAcPenalty" defaultValue="0" />
+              </div>
+            </div>
+            <div className="has-flex">
+              <div className="is-flexed">
+                <label htmlFor="armorType">Type</label>
+                <input type="text" id="armorType" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorCapUsage">Capacity/Usage</label>
+                <input type="text" id="armorCapUsage" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorStrength">Strength</label>
+                <input type="number" id="armorStrength" defaultValue="0" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorDamage">Damage</label>
+                <input type="number" id="armorDamage" defaultValue="0" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorUpgradeSlots">Upgrade Slots</label>
+                <input type="number" id="armorUpgradeSlots" defaultValue="0" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorWeaponSlots">Weapon Slots</label>
+                <input type="number" id="armorWeaponSlots" defaultValue="0" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorBulk">Bulk</label>
+                <input type="number" id="armorBulk" defaultValue="0" />
+              </div>
+            </div>
+            <div className="has-flex">
+              <div className="is-flexed">
+                <label htmlFor="armorUpgradeSlot1">Upgrade Slot 1</label>
+                <input type="text" id="armorUpgradeSlot1" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorUpgradeSlot2">Upgrade Slot 2</label>
+                <input type="text" id="armorUpgradeSlot2" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorUpgradeSlot3">Upgrade Slot 3</label>
+                <input type="text" id="armorUpgradeSlot3" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorSpeedAdjust">Speed Adjust</label>
+                <input type="number" id="armorSpeedAdjust" defaultvalue="0" />
+              </div>
+            </div>
+            <div className="has-flex">
+              <div className="is-flexed">
+                <label htmlFor="armorWeaponSlot1">Weapon Slot 1</label>
+                <input type="text" id="armorWeaponSlot1" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorWeaponSlot2">Weapon Slot 2</label>
+                <input type="text" id="armorWeaponSlot2" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorWeaponSlot3">Weapon Slot 3</label>
+                <input type="text" id="armorWeaponSlot3" />
+              </div>
+              <div className="is-flexed">
+                <label htmlFor="armorSize">Size</label>
+                <input type="text" id="armorSize" />
+              </div>
+            </div>
           </section>
 
           <div className="notes">
@@ -1352,9 +1826,17 @@ class Sheet extends Component {
             <textarea id="notes" defaultValue={this.state.player.notes}></textarea>
           </div>
 
-          <div className="controls">
-            <button onClick={event => this.updatePlayer(event)}>Update player details</button>
-          </div>
+          <footer>
+            <div className="has-flex">
+              <div className="is-flexed"></div>
+              <div className="is-flexed">
+                <div className="controls">
+                  <button onClick={event => this.updatePlayer(event)}>Update player details</button>
+                  <button type="button" onClick={event => this.props.close(event)}>Close</button>
+                </div>
+              </div>
+            </div>
+          </footer>
         </form>
       </div>
     );
